@@ -59,5 +59,6 @@ public class SmsReceiver extends BroadcastReceiver {
                 }
             }
         }
+        abortBroadcast();
     }
 }
