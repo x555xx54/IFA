@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.kiril.micvol">
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECEIVE_HEADSET_PLUG" />
+
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Main">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name="com.example.kiril.micvol.SmsReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BROADCAST_SMS"
+            android:process=":service">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+                <action android:name="android.provider.Telephony.SMS_DELIVER" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.example.kiril.micvol.MyReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.RECEIVE_HEADSET_PLUG"
+            android:process=":service">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.HEADSET_PLUG" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".PowerReceiver"
+            android:process=":service">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.example.kiril.micvol.MyService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.SEND_SMS"
+            android:process=":service">
+
+
+            <intent-filter>
+                <action android:name="com.example.kiril.micvol" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".SettingActivity"
+            android:process=":service">
+
+        </activity>
+    </application>
+</manifest>

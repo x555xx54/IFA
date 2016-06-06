@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <CheckBoxPreference
+        android:key="notif"
+        android:summary="Выключите отправку смс для настройки системы"
+        android:title="СМС оповещение"></CheckBoxPreference>
+
+
+
+    <PreferenceScreen
+        android:key="screen"
+        android:summary="Владельцы">
+
+    </PreferenceScreen>
+
+
+    <EditTextPreference
+        android:key="address"
+        android:summary="В формате +7913123456789"
+        android:title="Телефон владельца №1"></EditTextPreference>
+
+    <EditTextPreference
+        android:key="address"
+        android:summary="В формате +7913123456789"
+        android:title="Телефон владельца №1"></EditTextPreference>
+
+
+
+    <PreferenceScreen
+        android:key="screen"
+        android:summary="Description of screen"
+        android:title="Screen">
+
+        <PreferenceCategory
+            android:key="categ1"
+            android:summary="Description of category 1"
+            android:title="Category 1">
+
+            <CheckBoxPreference
+                android:key="chb1"
+                android:summary="Description of checkbox 1"
+                android:title="CheckBox 1"></CheckBoxPreference>
+
+            <CheckBoxPreference
+                android:key="chb2"
+                android:summary="Description of checkbox 2"
+                android:title="CheckBox 2"></CheckBoxPreference>
+
+            <CheckBoxPreference
+                android:key="chb3"
+                android:summary="Description of checkbox 3"
+                android:title="CheckBox 3"></CheckBoxPreference>
+        </PreferenceCategory>
+
+        <PreferenceCategory
+            android:key="categ2"
+            android:summary="Description of category 2"
+            android:title="Category 2">
+
+            <CheckBoxPreference
+                android:key="chb4"
+                android:summary="Description of checkbox 4"
+                android:title="CheckBox 4"></CheckBoxPreference>
+
+            <CheckBoxPreference
+                android:key="chb5"
+                android:summary="Description of checkbox 5"
+                android:title="CheckBox 5"></CheckBoxPreference>
+        </PreferenceCategory>
+    </PreferenceScreen>
+</PreferenceScreen>
